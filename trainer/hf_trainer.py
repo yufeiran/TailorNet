@@ -8,9 +8,9 @@ import pickle
 
 from models import networks
 from models import ops
-from dataset.static_pose_shape_final import OneStyleShapeHF
-import global_var
-from trainer import base_trainer
+from TailorNet.dataset.static_pose_shape_final import OneStyleShapeHF
+from TailorNet import global_var
+from TailorNet.trainer import base_trainer
 
 device = torch.device("cuda:0")
 # device = torch.device("cpu")

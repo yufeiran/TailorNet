@@ -3,18 +3,18 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Dataset root directory. Change it to point to downloaded data root directory.
-DATA_DIR = '/BS/cloth-anim/static00/tailor_data'
+DATA_DIR = '/mnt/data1/yu/data/tailornet'
 
 # Set the paths to SMPL model
-SMPL_PATH_NEUTRAL = '/BS/RVH/work/data/smpl_models/neutral/basicModel_neutral_lbs_10_207_0_v1.0.0.pkl'
-SMPL_PATH_MALE = '/BS/RVH/work/data/smpl_models/lrotmin/lbs_tj10smooth6_0fixed_normalized/male/model.pkl'
-SMPL_PATH_FEMALE = '/BS/RVH/work/data/smpl_models/lrotmin/lbs_tj10smooth6_0fixed_normalized/female/model.pkl'
+SMPL_PATH_NEUTRAL = '/home/yufeiran/project/TailorNet/smpl/basicModel_neutral_lbs_10_207_0_v1.0.0.pkl'
+SMPL_PATH_MALE = '/home/yufeiran/project/TailorNet/smpl/basicmodel_m_lbs_10_207_0_v1.0.0.pkl'
+SMPL_PATH_FEMALE = '/home/yufeiran/project/TailorNet/smpl/basicmodel_f_lbs_10_207_0_v1.0.0.pkl'
 
 # Log directory where training logs, checkpoints and visualizations will be stored
-LOG_DIR = '/BS/cpatel/work/data/learn_anim'
+LOG_DIR = '/home/yufeiran/project/TailorNet/data'
 
 # Downloaded TailorNet trained models' path
-MODEL_WEIGHTS_PATH = "/BS/cpatel/work/data/learn_anim"
+MODEL_WEIGHTS_PATH = "/home/yufeiran/project/TailorNet/weights"
 
 # --------------------------------------------------------------------
 # Variables below hardly need to change

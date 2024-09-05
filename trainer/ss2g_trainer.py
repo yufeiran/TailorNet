@@ -6,9 +6,9 @@ import json
 import pickle
 
 from models import networks
-from dataset.canonical_pose_dataset import ShapeStyleCanonPose
-import global_var
-from trainer import base_trainer
+from TailorNet.dataset.canonical_pose_dataset import ShapeStyleCanonPose
+from TailorNet import global_var
+from TailorNet.trainer import base_trainer
 from models import ops
 
 device = torch.device("cuda:0")

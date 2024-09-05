@@ -2,20 +2,21 @@ import os
 import numpy as np
 import torch
 
+
 from psbody.mesh import Mesh
 
 from models.tailornet_model import get_best_runner as get_tn_runner
 from models.smpl4garment import SMPL4Garment
-from utils.rotation import normalize_y_rotation
+from TailorNet.utils.rotation import normalize_y_rotation
 from visualization.blender_renderer import visualize_garment_body
 
-from dataset.canonical_pose_dataset import get_style, get_shape
+from TailorNet.dataset.canonical_pose_dataset import get_style, get_shape
 from visualization.vis_utils import get_specific_pose, get_specific_style_old_tshirt
 from visualization.vis_utils import get_specific_shape, get_amass_sequence_thetas
-from utils.interpenetration import remove_interpenetration_fast
+from TailorNet.utils.interpenetration import remove_interpenetration_fast
 
 # Set output path where inference results will be stored
-OUT_PATH = "/BS/cpatel/work/code_test2"
+OUT_PATH = "/home/yufeiran/project/TailorNet/output"
 
 
 def get_single_frame_inputs(garment_class, gender):
@@ -72,15 +73,15 @@ def get_sequence_inputs(garment_class, gender):
 
 
 def run_tailornet():
-    gender = 'female'
-    garment_class = 'skirt'
+    gender = 'male'
+    garment_class = 't-shirt'
     thetas, betas, gammas = get_single_frame_inputs(garment_class, gender)
     # # uncomment the line below to run inference on sequence data
     # thetas, betas, gammas = get_sequence_inputs(garment_class, gender)
 
     # load model
     tn_runner = get_tn_runner(gender=gender, garment_class=garment_class)
-    # from trainer.base_trainer import get_best_runner
+    # from TailorNet.trainer.base_trainer import get_best_runner
     # tn_runner = get_best_runner("/BS/cpatel/work/data/learn_anim/tn_baseline/{}_{}/".format(garment_class, gender))
     smpl = SMPL4Garment(gender=gender)
 

@@ -9,7 +9,7 @@ from psbody.mesh import Mesh
 from psbody.mesh.geometry.vert_normals import VertNormals
 from psbody.mesh.geometry.tri_normals import TriNormals
 from psbody.mesh.search import AabbTree
-from utils.diffusion_smoothing import numpy_laplacian_uniform as laplacian
+from TailorNet.utils.diffusion_smoothing import numpy_laplacian_uniform as laplacian
 
 
 def get_nearest_points_and_normals(vert, base_verts, base_faces):
@@ -21,16 +21,16 @@ def get_nearest_points_and_normals(vert, base_verts, base_faces):
 
     tree = AabbTree(Mesh(v=base_verts, f=base_faces))
     nearest_tri, nearest_part, nearest_point = tree.nearest(vert, nearest_part=True)
-    nearest_tri = nearest_tri.ravel().astype(np.long)
-    nearest_part = nearest_part.ravel().astype(np.long)
+    nearest_tri = nearest_tri.ravel().astype(np.integer)
+    nearest_part = nearest_part.ravel().astype(np.integer)
 
     nearest_normals = np.zeros_like(vert)
 
     # nearest_part tells you whether the closest point in triangle abc is
     # in the interior (0), on an edge (ab:1,bc:2,ca:3), or a vertex (a:4,b:5,c:6)
-    cl_tri_idxs = np.nonzero(nearest_part == 0)[0].astype(np.int)
-    cl_vrt_idxs = np.nonzero(nearest_part > 3)[0].astype(np.int)
-    cl_edg_idxs = np.nonzero((nearest_part <= 3) & (nearest_part > 0))[0].astype(np.int)
+    cl_tri_idxs = np.nonzero(nearest_part == 0)[0].astype(np.integer)
+    cl_vrt_idxs = np.nonzero(nearest_part > 3)[0].astype(np.integer)
+    cl_edg_idxs = np.nonzero((nearest_part <= 3) & (nearest_part > 0))[0].astype(np.integer)
 
     nt = nearest_tri[cl_tri_idxs]
     nearest_normals[cl_tri_idxs] = fn[nt]

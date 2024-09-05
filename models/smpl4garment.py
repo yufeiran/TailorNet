@@ -4,10 +4,10 @@ import chumpy as ch
 import numpy as np
 import cv2
 from psbody.mesh import Mesh
-from smpl_lib.ch_smpl import Smpl
-from utils.smpl_paths import SmplPaths
+from TailorNet.smpl_lib.ch_smpl import Smpl
+from TailorNet.utils.smpl_paths import SmplPaths
 
-import global_var
+from TailorNet import global_var
 
 
 class SMPL4Garment(object):
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     split = 'train'
     smpl = SMPL4Garment(gender)
 
-    from dataset.static_pose_shape_final import OneStyleShape
+    from TailorNet.dataset.static_pose_shape_final import OneStyleShape
     ds = OneStyleShape(garment_class, shape_idx, style_idx, split)
     K = 87
     verts_d, theta, beta, gamma, idx = ds[K]

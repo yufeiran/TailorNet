@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import os
 if 'SSH_CONNECTION' in os.environ:
-    from utils.renderer_software import Renderer
+    from TailorNet.utils.renderer_software import Renderer
     print("Warning: You're logged via SSH. Thus only software renderer is available, which is much slower")
 else:
     import pyrender
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     from psbody.mesh import Mesh
     import cv2
     import numpy as np
-    import global_var
+    from TailorNet import global_var
 
     m1 = Mesh(filename='/home/zliao/cloth-anim/work/data/md/cloth_test/121611457711203/apose_avatar.obj')
     m2 = Mesh(filename='/home/zliao/cloth-anim/work/data/md/cloth_test/121611457711203/result_Pants.obj')

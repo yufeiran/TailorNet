@@ -10,11 +10,11 @@ import pickle
 from models import networks
 from models import ops
 from models.smpl4garment import SMPL4Garment
-from dataset.static_pose_shape_final import MultiStyleShape
-from utils.eval import AverageMeter
-from utils.logger import TailorNetLogger
-from utils import sio
-import global_var
+from TailorNet.dataset.static_pose_shape_final import MultiStyleShape
+from TailorNet.utils.eval import AverageMeter
+from TailorNet.utils.logger import TailorNetLogger
+from TailorNet.utils import sio
+from TailorNet import global_var
 
 device = torch.device("cuda:0")
 # device = torch.device("cpu")

@@ -1,7 +1,7 @@
 import os
 import csv
 from datetime import datetime
-import global_var
+from TailorNet import global_var
 
 
 class BaseLogger(object):

@@ -20,10 +20,10 @@ class AverageMeter(object):
 
 def evaluate():
     """Evaluate TailorNet (or any model for that matter) on test set."""
-    from dataset.static_pose_shape_final import MultiStyleShape
+    from TailorNet.dataset.static_pose_shape_final import MultiStyleShape
     import torch
     from torch.utils.data import DataLoader
-    from utils.eval import AverageMeter
+    from TailorNet.utils.eval import AverageMeter
     from models import ops
 
     gender = 'female'
@@ -36,7 +36,7 @@ def evaluate():
     val_dist = AverageMeter()
     from models.tailornet_model import get_best_runner as tn_runner
     runner = tn_runner(garment_class, gender)
-    # from trainer.base_trainer import get_best_runner as baseline_runner
+    # from TailorNet.trainer.base_trainer import get_best_runner as baseline_runner
     # runner = baseline_runner("/BS/cpatel/work/data/learn_anim/{}_{}_weights/tn_orig_baseline/{}_{}".format(garment_class, gender, garment_class, gender))
 
     device = torch.device('cuda:0')
@@ -59,10 +59,10 @@ def evaluate():
 
 def evaluate_save():
     """Evaluate TailorNet (or any model for that matter) on test set."""
-    from dataset.static_pose_shape_final import MultiStyleShape
+    from TailorNet.dataset.static_pose_shape_final import MultiStyleShape
     import torch
     from torch.utils.data import DataLoader
-    from utils.eval import AverageMeter
+    from TailorNet.utils.eval import AverageMeter
     from models import ops
     from models.smpl4garment import SMPL4Garment
     import os
@@ -80,7 +80,7 @@ def evaluate_save():
     val_dist = AverageMeter()
     from models.tailornet_model import get_best_runner as tn_runner
     runner = tn_runner(garment_class, gender)
-    # from trainer.base_trainer import get_best_runner as baseline_runner
+    # from TailorNet.trainer.base_trainer import get_best_runner as baseline_runner
     # runner = baseline_runner("/BS/cpatel/work/data/learn_anim/{}_{}_weights/tn_orig_baseline/{}_{}".format(garment_class, gender, garment_class, gender))
 
     device = torch.device('cuda:0')

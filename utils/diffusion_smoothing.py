@@ -201,7 +201,7 @@ if __name__ == "__main__":
     if not IS_SMPL:
         ms = Mesh(filename=fpath)
     else:
-        from utils.smpl_paths import SmplPaths
+        from TailorNet.utils.smpl_paths import SmplPaths
 
         dp = SmplPaths(gender='female')
         smpl = dp.get_smpl()

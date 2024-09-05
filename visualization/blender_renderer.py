@@ -70,7 +70,7 @@ def get_rotmat(side):
     elif side.startswith("right"):
         angle = side.replace("right", "")
         s = R.from_rotvec((float(angle) * np.pi / 180) * np.array([0,1,0]))
-    return s.as_dcm()
+    return s.as_matrix()
 
     
 def preproc_garbody(gar, body, garment_class=None, side='front'):

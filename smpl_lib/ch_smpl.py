@@ -9,7 +9,7 @@ from chumpy.ch import Ch
 from .posemapper import posemap, Rodrigues
 from .serialization import backwards_compatibility_replacements
 
-from smpl_lib.ch import sp_dot
+from TailorNet.smpl_lib.ch import sp_dot
 
 
 class Smpl(Ch):
@@ -127,7 +127,7 @@ class Smpl(Ch):
 
 
 if __name__ == '__main__':
-    from utils.smpl_paths import SmplPaths
+    from TailorNet.utils.smpl_paths import SmplPaths
 
     dp = SmplPaths(gender='male')
 
